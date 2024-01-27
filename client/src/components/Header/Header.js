@@ -8,6 +8,7 @@ const Header = (props) => {
     searchValue,
     setSearchValue,
     getMovies,
+    setCurrentPage,
   } = props
   const apiKey = process.env.REACT_APP_API_KEY
   const apiUrl = process.env.REACT_APP_API_URL
@@ -53,34 +54,40 @@ const Header = (props) => {
   }
 
   const handleSearchChange = async (e) => {
+    setCurrentPage(1)
     setSearchValue(e.target.value)
     if (e.target.value === '') {
       await getMovies(DISCOVER)
     } else {
+      setSelectedCategory('')
       await getMovies(SEARCHAPI + e.target.value)
     }
   }
 
   return (
     <div className="header">
-      <button onClick={handleHomeClick}>Home</button>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="" hidden>
-          Select a Category
-        </option>
-        <option value="Now Playing">Now Playing</option>
-        <option value="Top Rated">Top Rated</option>
-        <option value="Popular">Popular</option>
-        <option value="Upcoming">Upcoming</option>
-      </select>
-      <span
+      <div
         className="title"
         onClick={(e) => {
           handleHomeClick(e)
         }}
       >
         MovieInfo.com
-      </span>
+      </div>
+      <button className="home" onClick={handleHomeClick}>
+        Home
+      </button>
+      <div className="select-container">
+        <select value={selectedCategory} onChange={handleCategoryChange}>
+          <option value="" hidden>
+            Select a Category
+          </option>
+          <option value="Now Playing">Now Playing</option>
+          <option value="Top Rated">Top Rated</option>
+          <option value="Popular">Popular</option>
+          <option value="Upcoming">Upcoming</option>
+        </select>
+      </div>
       <input
         type="text"
         placeholder="Search a movie"

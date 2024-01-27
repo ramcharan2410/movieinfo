@@ -19,9 +19,9 @@ const MovieItem = (props) => {
       <img src={IMGPATH + poster_path} alt={title} />
       <div className="movie-info">
         <h3 title={title}>{title}</h3>
-        <span class={getClassByRate(vote_average)}>{vote_average}</span>
+        <span className={getClassByRate(vote_average)}>{vote_average}</span>
       </div>
-      <div class="overview">
+      <div className="overview">
         <h3>Overview:</h3>
         {overview}
       </div>

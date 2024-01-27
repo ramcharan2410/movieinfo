@@ -1,25 +1,26 @@
 import React from 'react'
-import Pagination from '@mui/material/Pagination'
 import './footer.css'
+
 const Footer = (props) => {
-  const { movies, setMovies, getMovies, lastUrl } = props
+  const { movies, getMovies, lastUrl, currentPage, setCurrentPage } = props
+
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
   }
-  const handlePageChange = async (e) => {
-    const ariaLabel = e.target.ariaLabel
-    const words = ariaLabel.split(' ')
-    const page = words[words.length - 1]
-    // console.log(page)
+
+  const handlePageChange = async (newPage) => {
+    setCurrentPage(newPage)
+
     let urlsplit = lastUrl.split('?')
     let queryParams = urlsplit[1].split('&')
     let key = queryParams[queryParams.length - 1].split('=')
+
     if (key[0] !== 'page') {
-      let url = lastUrl + '&page=' + page
+      let url = lastUrl + '&page=' + newPage
       await getMovies(url)
     } else {
-      key[1] = page.toString()
+      key[1] = newPage.toString()
       let a = key.join('=')
       queryParams[queryParams.length - 1] = a
       let b = queryParams.join('&')
@@ -27,15 +28,26 @@ const Footer = (props) => {
       await getMovies(url)
     }
   }
+
   return (
     <div className="footer">
-      <Pagination
-        count={movies.total_pages}
-        color="secondary"
-        onChange={(e) => {
-          handlePageChange(e)
-        }}
-      />
+      <div className="custom-pagination">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          &lt; Prev
+        </button>
+        <span className="current-page">
+          {currentPage} of {movies.total_pages}
+        </span>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === movies.total_pages}
+        >
+          Next &gt;
+        </button>
+      </div>
       <div className="footer-copyright">Copyright &copy; {getYear()}</div>
     </div>
   )

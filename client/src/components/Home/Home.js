@@ -9,6 +9,7 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState('')
   const [movies, setMovies] = useState([])
   const [lastUrl, setLastUrl] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const getMovies = async (url) => {
     setLastUrl(url)
@@ -22,6 +23,13 @@ const Home = () => {
       console.error('Error fetching movies:', err.message)
     }
   }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
   return (
     <div>
       <Header
@@ -30,13 +38,20 @@ const Home = () => {
         searchValue={searchValue}
         setSearchValue={setSearchValue}
         getMovies={getMovies}
+        setCurrentPage={setCurrentPage}
       />
-      <Main selectedCategory={selectedCategory} movies={movies} />
+      <Main
+        selectedCategory={selectedCategory}
+        movies={movies}
+        scrollToTop={scrollToTop}
+      />
       <Footer
         movies={movies}
         setMovies={setMovies}
         getMovies={getMovies}
         lastUrl={lastUrl}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
     </div>
   )

@@ -15,6 +15,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    position: relative;
     margin: 1rem;
     width: 275px;
     height: 475px;
@@ -26,7 +27,6 @@ body {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-
 .movie-info {
     color: #eee;
     display: flex;
@@ -34,10 +34,6 @@ body {
     justify-content: space-between;
     padding: 0.5rem 1rem 1rem;
     letter-spacing: 0.5px;
-}
-
-.movie-info h3 {
-    margin: 0;
 }
 
 .movie-info span {
@@ -64,17 +60,13 @@ body {
     color: #eee;
     padding: 2rem;
     position: absolute;
-    max-height: 100%;
+    max-height: 80%;
     overflow: auto;
     left: 0;
     bottom: 0;
     right: 0;
     transform: translateY(101%);
     transition: transform 0.3s ease-in;
-}
-
-.overview h3 {
-    margin-top: 0;
 }
 
 .movie-item:hover .overview {
