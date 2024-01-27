@@ -1,27 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-body {
-    background-color: #22254b;
-    font-family: "Poppins", sans-serif;
-}
-
-.title {
-    font-size: 2rem;
-    color: #eee;
-}
 .header{
-    background-color: #373b69;
+    font: inherit;
+    background-color: #222831;
+    color: #eee;
     width: 100%;
     position: fixed;
     z-index: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -36,12 +26,9 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
-.header button:hover{
-    background-color: #373b69;
+.home:hover{
+    background-color: #00ADB5;
     color: #eee;
-}
-.select-container {
-    position: relative;
 }
 
 select {
@@ -50,16 +37,31 @@ select {
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
-    min-width: 150px;
+    max-width: fit-content;
     margin-right: 50px;
 }
 select option {
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
-    cursor: pointer;
 }
 .header input:focus,
 .header select:focus {
     outline: none;
     border: 2px solid #eee;
+}
+input{
+    border: 2px #eee solid;
+    color: #eee;
+}
+.logout {
+    font: inherit;
+    padding: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.logout:hover {
+    background-color: red;
+    color: #eee;
 }

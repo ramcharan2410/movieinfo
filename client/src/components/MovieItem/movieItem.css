@@ -1,24 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-body {
-    background-color: #22254b;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-}
 .movie-item {
-    background-color: #373b69;
+    background-color: black;
     border-radius: 20px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     position: relative;
     margin: 1rem;
     width: 275px;
     height: 475px;
+    border: #222831 2px solid;
 }
 
 .movie-item img {
@@ -56,7 +49,7 @@ body {
 }
 
 .overview {
-    background-color: #373b69;
+    background-color: #393E46;
     color: #eee;
     padding: 2rem;
     position: absolute;
@@ -69,6 +62,23 @@ body {
     transition: transform 0.3s ease-in;
 }
 
+.overview::-webkit-scrollbar {
+    width: 7px;
+}
+
+.overview::-webkit-scrollbar-track {
+    background: #393E46;
+}
+
+.overview::-webkit-scrollbar-thumb {
+    background: #222831;
+    border-radius: 4px;
+    height: 4px;
+}
+
+.overview::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
 .movie-item:hover .overview {
     transform: translateY(0);
 }

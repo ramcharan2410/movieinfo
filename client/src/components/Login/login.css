@@ -8,11 +8,12 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    background-color: #393E46;
     max-height: 100vh;
 }
 
 .login-navbar{
-    background-color: black;
+    background-color: #222831;
     color: #eee;
     width: 100%;
     position: fixed;
@@ -45,8 +46,8 @@ body {
     color: blue;
 }
 .login-form {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 5px solid black;
+    background-color: #EEEEEE;
+    border: 5px solid #222831;
     width: 50%;
     margin: 0 auto;
     margin-top: 100px;
@@ -60,6 +61,8 @@ input {
     font: inherit;
     padding: 5px;
     align-items: center;
+    border: 2px solid #222831;
+    color: #222831;
     border-radius: 10px;
     margin-left: 10px;
     margin-bottom: 5px;
@@ -82,17 +85,18 @@ input[type="password"] {
 }
 
 .login-button:hover {
-    background-color: green;
+    background-color: #00ADB5;
     color: #eee;
 }
 .errorLabel, .user-not-found, .invalid-password{
     color:red;
 }
 .login-footer {
-    color: black;
+    color: #222831;
     font: inherit;
     font-weight: bold;
     position: fixed;
     bottom: 0;
-    left: 45%;
+    right: 0;
+    margin-right: 10px;
 }

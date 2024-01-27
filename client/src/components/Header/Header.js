@@ -1,4 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded'
 import './header.css'
 
 const Header = (props) => {
@@ -30,8 +32,9 @@ const Header = (props) => {
     TOPRATED,
     UPCOMING,
   } = urls
-
+  const navigate = useNavigate()
   const handleCategoryChange = async (e) => {
+    setCurrentPage(1)
     setSelectedCategory(e.target.value)
     if (selectedCategory === '') {
       await getMovies(DISCOVER)
@@ -63,17 +66,13 @@ const Header = (props) => {
       await getMovies(SEARCHAPI + e.target.value)
     }
   }
-
+  const handleLogOut = (e) => {
+    navigate('/login')
+  }
   return (
     <div className="header">
-      <div
-        className="title"
-        onClick={(e) => {
-          handleHomeClick(e)
-        }}
-      >
-        MovieInfo.com
-      </div>
+      <LiveTvRoundedIcon fontSize="large" />
+      <div className="title">MovieInfo</div>
       <button className="home" onClick={handleHomeClick}>
         Home
       </button>
@@ -97,6 +96,9 @@ const Header = (props) => {
           handleSearchChange(e)
         }}
       />
+      <button className="logout" onClick={(e) => handleLogOut(e)}>
+        Logout
+      </button>
     </div>
   )
 }

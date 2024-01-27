@@ -1,15 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: #22254b;
-    font-family: "Poppins", sans-serif;
-}
 .movie-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
