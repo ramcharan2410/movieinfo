@@ -6,11 +6,9 @@
 .footer {
     display: block;
     background-color: #222831;
-    color: #393E46;
+    color: #eee;
     font: inherit;
     font-weight: bold;
-    position: fixed;
-    bottom: 0;
     min-height: 6vh;
     width: 100%;
     padding: 10px;
@@ -43,5 +41,4 @@
 .current-page {
     font-size: 1rem;
     margin: 0 5px;
-    color: #eee;
 }

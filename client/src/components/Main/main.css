@@ -4,6 +4,8 @@
     padding: 0;
 }
 .main{
+    width: 100%;
     font: inherit;
     background-color: #393E46;
+    margin-bottom: 5px;
 }

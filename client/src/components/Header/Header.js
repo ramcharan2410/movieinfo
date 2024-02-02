@@ -16,22 +16,13 @@ const Header = (props) => {
   const apiUrl = process.env.REACT_APP_API_URL
   const urls = {
     DISCOVER: `${apiUrl}discover/movie?api_key=${apiKey}&page=1`,
-    IMGPATH: 'https://image.tmdb.org/t/p/w1280',
     SEARCHAPI: `${apiUrl}search/movie?api_key=${apiKey}&query=`,
     NOWPLAYING: `${apiUrl}movie/now_playing?language=en-US&api_key=${apiKey}&page=1`,
     POPULAR: `${apiUrl}movie/popular?language=en-US&api_key=${apiKey}&page=1`,
     TOPRATED: `${apiUrl}movie/top_rated?language=en-US&api_key=${apiKey}&page=1`,
     UPCOMING: `${apiUrl}movie/upcoming?language=en-US&api_key=${apiKey}&page=1`,
   }
-  const {
-    DISCOVER,
-    IMGPATH,
-    SEARCHAPI,
-    NOWPLAYING,
-    POPULAR,
-    TOPRATED,
-    UPCOMING,
-  } = urls
+  const { DISCOVER, SEARCHAPI, NOWPLAYING, POPULAR, TOPRATED, UPCOMING } = urls
   const navigate = useNavigate()
   const handleCategoryChange = async (e) => {
     setCurrentPage(1)
@@ -71,8 +62,10 @@ const Header = (props) => {
   }
   return (
     <div className="header">
-      <LiveTvRoundedIcon fontSize="large" />
-      <div className="title">MovieInfo</div>
+      <div className="title">
+        <LiveTvRoundedIcon fontSize="large" />
+        <div className="title-name">MovieInfo</div>
+      </div>
       <button className="home" onClick={handleHomeClick}>
         Home
       </button>

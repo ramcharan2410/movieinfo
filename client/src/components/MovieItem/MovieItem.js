@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './movieItem.css'
+
 const MovieItem = (props) => {
   const { movie } = props
   const { poster_path, title, vote_average, overview } = movie
   const IMGPATH = 'https://image.tmdb.org/t/p/w1280'
-  // console.log(movie)
+  const [isHovered, setIsHovered] = useState(false)
+
   const getClassByRate = (vote) => {
     if (vote >= 8) {
       return 'green'
@@ -14,16 +16,25 @@ const MovieItem = (props) => {
       return 'red'
     }
   }
+
   return (
-    <div className="movie-item">
-      <img src={IMGPATH + poster_path} alt={title} />
-      <div className="movie-info">
-        <h3 title={title}>{title}</h3>
-        <span className={getClassByRate(vote_average)}>{vote_average}</span>
-      </div>
-      <div className="overview">
-        <h3>Overview:</h3>
-        {overview}
+    <div
+      className="movie-item"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="movie-img">
+        <img src={IMGPATH + poster_path} alt={title} />
+        {isHovered && (
+          <div className="movie-info">
+            <p className="movie-title" title={title}>
+              {title}
+            </p>
+            <span className={getClassByRate(vote_average)}>{vote_average}</span>
+            <h3>Overview:</h3>
+            {overview}
+          </div>
+        )}
       </div>
     </div>
   )

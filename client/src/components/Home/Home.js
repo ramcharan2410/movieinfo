@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
@@ -10,7 +10,9 @@ const Home = () => {
   const [movies, setMovies] = useState([])
   const [lastUrl, setLastUrl] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
-
+  const apiKey = process.env.REACT_APP_API_KEY
+  const apiUrl = process.env.REACT_APP_API_URL
+  const DISCOVER = `${apiUrl}discover/movie?api_key=${apiKey}&page=1`
   const getMovies = async (url) => {
     setLastUrl(url)
     // console.log(url)
@@ -30,6 +32,12 @@ const Home = () => {
       behavior: 'smooth',
     })
   }
+  useEffect(() => {
+    const fetchDiscoverMovies = async () => {
+      await getMovies(DISCOVER)
+    }
+    fetchDiscoverMovies()
+  }, [])
   return (
     <div>
       <Header

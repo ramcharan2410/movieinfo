@@ -26,8 +26,8 @@ body {
     font-size: 2rem;
     font-weight: bolder;
     position: fixed;
-    margin-left: 32px;
     top: 7px;
+    left: 15px;
 }
 .title:hover{
     cursor: pointer;

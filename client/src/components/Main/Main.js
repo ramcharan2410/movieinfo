@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import MovieList from '../MovieList/MovieList'
-
+import './main.css'
 const Main = (props) => {
   const { movies, scrollToTop } = props
 
