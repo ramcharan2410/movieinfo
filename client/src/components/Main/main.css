@@ -3,9 +3,17 @@
     margin: 0;
     padding: 0;
 }
-.main{
+
+.main {
     width: 100%;
     font: inherit;
-    background-color: #393E46;
+    background-color: inherit;
     margin-bottom: 5px;
+}
+
+.main-content {
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
+    color: #eee;
 }

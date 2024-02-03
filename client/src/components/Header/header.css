@@ -9,7 +9,7 @@
     color: #eee;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,6 +19,7 @@
     width:max-content;
 }
 .title-name{
+    font-size: 30px;
     display: inline-block;
     position: relative;
     top: -3px;
@@ -56,19 +57,18 @@ select option {
     outline: none;
     border: 2px solid #eee;
 }
-input{
-    border: 2px #eee solid;
-    color: #eee;
-}
-.logout {
+input {
     font: inherit;
-    padding: 3px;
+    padding: 5px;
+    align-items: center;
+    border: 2px solid #222831;
+    color: #222831;
     border-radius: 10px;
-    cursor: pointer;
-    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: block;
 }
 
-.logout:hover {
-    background-color: red;
-    color: #eee;
+input[type="text"] {
+    width: 30%;
 }
