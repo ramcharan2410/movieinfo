@@ -3,7 +3,9 @@
     margin: 0;
     padding: 0;
 }
-
+.no-movies-found{
+    color: #eee;
+}
 .movie-list{
     margin-left: 1%;
     display: grid;

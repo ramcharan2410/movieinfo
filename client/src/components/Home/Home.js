@@ -49,9 +49,10 @@ const Home = () => {
         setCurrentPage={setCurrentPage}
       />
       <Main
-        selectedCategory={selectedCategory}
         movies={movies}
         scrollToTop={scrollToTop}
+        searchValue={searchValue}
+        selectedCategory={selectedCategory}
       />
       <Footer
         movies={movies}

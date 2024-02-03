@@ -42,6 +42,8 @@ const Header = (props) => {
   }
 
   const handleHomeClick = async () => {
+    setSelectedCategory('')
+    setSearchValue('')
     await getMovies(DISCOVER)
   }
 

@@ -10,7 +10,7 @@ const MovieList = (props) => {
   return (
     <div className="movie-list">
       {noResultsFound ? (
-        <p>No movies found :( </p>
+        <p className='no-movies-found'>No movies found :( </p>
       ) : (
         pageMovies.map((movie) => <MovieItem key={movie.id} movie={movie} />)
       )}
