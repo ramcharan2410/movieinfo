@@ -11,3 +11,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     width: fit-content;
 }
+.no-movies-found{
+    font: inherit;
+    font-size: 40px;
+    color: #eee;
+    text-align: center;
+}

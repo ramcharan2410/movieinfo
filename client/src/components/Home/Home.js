@@ -4,7 +4,8 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Main from '../Main/Main'
 import './home.css'
-const Home = () => {
+const Home = (props) => {
+  const {userName,email} = props
   const [selectedCategory, setSelectedCategory] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const [movies, setMovies] = useState([])
@@ -52,6 +53,7 @@ const Home = () => {
         selectedCategory={selectedCategory}
         movies={movies}
         scrollToTop={scrollToTop}
+        userName={userName}
       />
       <Footer
         movies={movies}
