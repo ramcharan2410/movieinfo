@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
-import Main from '../Main/Main'
-import './home.css'
+import Header from './Header'
+import Footer from './Footer'
+import Main from './Main'
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
   const [searchValue, setSearchValue] = useState('')

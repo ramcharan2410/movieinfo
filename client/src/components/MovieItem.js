@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './movieItem.css'
 
 const MovieItem = (props) => {
   const { movie } = props
@@ -19,20 +18,20 @@ const MovieItem = (props) => {
 
   return (
     <div
-      className="movie-item"
+      className="movieitem-container"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="movie-img">
+      <div className="movieitem-img">
         <img src={IMGPATH + poster_path} alt={title} />
         {isHovered && (
-          <div className="movie-info">
-            <p className="movie-title" title={title}>
+          <div className="movieitem-info">
+            <p className="movieitem-title" title={title}>
               {title}
             </p>
             <span className={getClassByRate(vote_average)}>{vote_average}</span>
             <h3>Overview:</h3>
-            {overview}
+            <p className="overview">{overview}</p>
           </div>
         )}
       </div>

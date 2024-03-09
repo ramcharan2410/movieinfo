@@ -1,6 +1,5 @@
 import React from 'react'
 import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded'
-import './header.css'
 
 const Header = (props) => {
   const {
@@ -59,11 +58,11 @@ const Header = (props) => {
   }
   return (
     <div className="header">
-      <div className="title">
+      <div className="title-container">
         <LiveTvRoundedIcon fontSize="large" />
         <div className="title-name">MovieInfo</div>
       </div>
-      <button className="home" onClick={handleHomeClick}>
+      <button className="btn-home" onClick={handleHomeClick}>
         Home
       </button>
         <select value={selectedCategory} onChange={handleCategoryChange}>
@@ -78,7 +77,7 @@ const Header = (props) => {
       <input
         type="text"
         placeholder="Search a movie"
-        className="search"
+        className="movie-search"
         value={searchValue}
         onChange={(e) => {
           handleSearchChange(e)

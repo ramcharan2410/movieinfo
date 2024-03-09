@@ -1,6 +1,5 @@
 import React from 'react'
-import './movieList.css'
-import MovieItem from '../MovieItem/MovieItem'
+import MovieItem from './MovieItem'
 
 const MovieList = (props) => {
   const { movies } = props
@@ -8,9 +7,9 @@ const MovieList = (props) => {
   const noResultsFound = pageMovies.length === 0
 
   return (
-    <div className="movie-list">
+    <div className="movielist-container">
       {noResultsFound ? (
-        <p className='no-movies-found'>No movies found :( </p>
+        <p className="no-movies-found">No movies found :( </p>
       ) : (
         pageMovies.map((movie) => <MovieItem key={movie.id} movie={movie} />)
       )}
