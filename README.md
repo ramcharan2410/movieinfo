@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# MovieInfo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+1. [Brief Description](#brief-description)
+2. [Deployment](#deployment)
+3. [API Reference](#api-reference)
+4. [Environment Variables](#environment-variables)
+5. [Languages Used](#languages-used)
+6. [Dependencies and Libraries Used](#dependencies-and-libraries-used)
+7. [Documentation](#documentation)
+8. [Features](#features)
+9. [Details](#details)
+10. [Feedback](#feedback)
 
-In the project directory, you can run:
+## Brief Description
 
-### `npm start`
+This project allows us to view a wide range of now-playing, popular, top-rated, and upcoming movies. This project also allows us to view the overviews and ratings of each movie in any category. There is no limit to search a movie and know about it, because there are previous and next page options which enables you to travel to find new movies with each click.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deployment
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can find this project deployment [here](https://book-tracker-frontend.vercel.app/).
 
-### `npm test`
+## API Reference
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is done with the TMDb API.
 
-### `npm run build`
+[API Reference](https://developer.themoviedb.org/reference/intro/getting-started)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Environment Variables
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Get your API key from TMDb](https://www.themoviedb.org/settings/api)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Languages Used
 
-### `npm run eject`
+- React.js - for developing the front-end part of the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Dependencies and Libraries Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Documentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Refer to the below given respective documentations for the languages used to build this project.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [Documentation for React.js](https://react.dev/)
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Has 4 categories - Now Playing, Popular, Top Rated, and Upcoming.
+- q Contains Movie Overview and its Average Rating.
+- q Previous and Next pages to discover wide range of available movies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Details
 
-### Code Splitting
+Name: Vakkalanka Ram Charan
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+University/College: Indian Institute of Technology Bhubaneshwar
 
-### Analyzing the Bundle Size
+Batch: 2021-2025
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Department: Electronics and Communication Engineering
 
-### Making a Progressive Web App
+## Feedback
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any feedback, please reach me out at ramcharanvakkalanka@gmail.com

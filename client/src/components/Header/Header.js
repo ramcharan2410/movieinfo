@@ -66,7 +66,6 @@ const Header = (props) => {
       <button className="home" onClick={handleHomeClick}>
         Home
       </button>
-      <div className="select-container">
         <select value={selectedCategory} onChange={handleCategoryChange}>
           <option value="" hidden>
             Select a Category
@@ -76,7 +75,6 @@ const Header = (props) => {
           <option value="Popular">Popular</option>
           <option value="Upcoming">Upcoming</option>
         </select>
-      </div>
       <input
         type="text"
         placeholder="Search a movie"
