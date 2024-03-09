@@ -1,5 +1,4 @@
 import React from 'react'
-import './footer.css'
 
 const Footer = (props) => {
   const { movies, getMovies, lastUrl, currentPage, setCurrentPage } = props

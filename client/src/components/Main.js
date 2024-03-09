@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import MovieList from '../MovieList/MovieList'
-import './main.css'
+import MovieList from './MovieList'
 
 const Main = (props) => {
   const { movies, scrollToTop, searchValue, selectedCategory } = props
@@ -26,7 +25,7 @@ const Main = (props) => {
   }
 
   return (
-    <div className="main">
+    <div className="main-container">
       {renderMainContent()}
       <MovieList movies={movies} />
     </div>
