@@ -46,8 +46,8 @@ Refer to the below given respective documentations for the languages used to bui
 ## Features
 
 - Has 4 categories - Now Playing, Popular, Top Rated, and Upcoming.
-- q Contains Movie Overview and its Average Rating.
-- q Previous and Next pages to discover wide range of available movies
+- Contains Movie Overview and its Average Rating.
+- Previous and Next pages to discover wide range of available movies
 
 ## Details
 
