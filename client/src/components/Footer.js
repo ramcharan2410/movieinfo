@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = (props) => {
-  const { movies, getMovies, lastUrl, currentPage, setCurrentPage } = props
+  const { data, getData, lastUrl, currentPage, setCurrentPage } = props
 
   const getYear = () => {
     const today = new Date()
@@ -17,14 +17,14 @@ const Footer = (props) => {
 
     if (key[0] !== 'page') {
       let url = lastUrl + '&page=' + newPage
-      await getMovies(url)
+      await getData(url)
     } else {
       key[1] = newPage.toString()
       let a = key.join('=')
       queryParams[queryParams.length - 1] = a
       let b = queryParams.join('&')
       let url = urlsplit[0] + '?' + b
-      await getMovies(url)
+      await getData(url)
     }
   }
 
@@ -38,11 +38,11 @@ const Footer = (props) => {
           &lt; Prev
         </button>
         <span className="current-page">
-          {currentPage} of {movies.total_pages}
+          {currentPage} of {data.total_pages}
         </span>
         <button
           onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === movies.total_pages}
+          disabled={currentPage === data.total_pages}
         >
           Next &gt;
         </button>

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap');
+
 /************ Default Css ************/
 * {
     margin: 0;
@@ -44,7 +45,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 75px;
     font-size: 16px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Kanit", sans-serif;
     background-color: #121212;
     min-height: 100vh;
     position: relative;
@@ -76,6 +77,7 @@ html {
 
 .title-name {
     font-size: 2rem;
+    font-family: "Kanit", sans-serif;
     display: inline;
     position: relative;
     top: -3px;
@@ -90,15 +92,35 @@ html {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     margin: 0.5em;
+    border: 1px solid #22254b;
 }
 
 .btn-home:hover {
     background-color: #00ADB5;
-    color: #eee;
 }
 
+.mode-select{
+    width: 15%;
+}
+
+.mode-select button {
+    font-family: inherit;
+    width: 50%;
+    padding: .5em;
+    cursor: pointer;
+    border: 1px solid #22254b;
+}
+
+.movie-mode{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.tv-mode{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 select {
-    font-family: "Poppins", sans-serif;
+    font-family: "Kanit", sans-serif;
     font-size: 1rem;
     border-radius: 10px;
     padding: .3em;
@@ -107,7 +129,7 @@ select {
 }
 
 select option {
-    font-family: "Poppins", sans-serif;
+    font-family: "Kanit", sans-serif;
     font-size: 1rem;
     cursor: pointer; /* not working? */
 }
@@ -123,7 +145,8 @@ input {
     padding: .3em;
     align-items: center;
     border: 2px solid #222831;
-    color: #222831;
+    background-color: #1E1E1E;
+    color: white;
     border-radius: 10px;
     margin: 0.5em;
 }
@@ -174,10 +197,10 @@ input[type="text"] {
     color: #eee;
 }
 /* MovieList.js */
-.no-movies-found {
+.no-data-found {
     color: #eee;
 }
-.movielist-container {
+.datalist-container {
     display: grid;
     gap: .7em;
     grid-template-columns: repeat(5, 1fr);
@@ -186,27 +209,27 @@ input[type="text"] {
 }
 /* Breakpoints for different screen sizes */
 @media screen and (max-width: 1200px) {
-    .movielist-container {
+    .datalist-container {
         grid-template-columns: repeat(4, 1fr);
         /* 4 columns */
     }
 }
 
 @media screen and (max-width: 992px) {
-    .movielist-container {
+    .datalist-container {
         grid-template-columns: repeat(3, 1fr);
         /* 3 columns */
     }
 }
 
 @media screen and (max-width: 768px) {
-    .movielist-container {
+    .datalist-container {
         grid-template-columns: repeat(2, 1fr);
         /* 2 columns */
     }
 }
-/* MovieItem.js */
-.movieitem-container {
+/* DataItem.js */
+.dataitem-container {
     background-color: black;
     border-radius: 20px;
     overflow: hidden;
@@ -218,7 +241,7 @@ input[type="text"] {
     border: #222831 3px solid;
 }
 
-.movieitem-container img {
+.dataitem-container img {
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -226,11 +249,11 @@ input[type="text"] {
     transition: filter 0.3s ease-in-out;
 }
 
-.movieitem-container:hover img {
+.dataitem-container:hover img {
     filter: blur(4px);
 }
 
-.movieitem-info {
+.dataitem-info {
     background-color: #393E46;
     color: #eee;
     padding: 1em;
@@ -242,36 +265,36 @@ input[type="text"] {
     transition: max-height 0.3s ease-in-out;
 }
 
-.movieitem-container:hover .movieitem-info {
+.dataitem-container:hover .dataitem-info {
     max-height: 80%;
 }
 
-.movieitem-info::-webkit-scrollbar {
+.dataitem-info::-webkit-scrollbar {
     width: 7px;
 }
 
-.movieitem-info::-webkit-scrollbar-track {
+.dataitem-info::-webkit-scrollbar-track {
     background: #393E46;
 }
 
-.movieitem-info::-webkit-scrollbar-thumb {
+.dataitem-info::-webkit-scrollbar-thumb {
     background: #222831;
     border-radius: 4px;
     height: 4px;
 }
 
-.movieitem-info::-webkit-scrollbar-thumb:hover {
+.dataitem-info::-webkit-scrollbar-thumb:hover {
     background: black;
 }
 
-.movieitem-title {
+.dataitem-title {
     display: block;
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 0.5em;
 }
 
-.movieitem-info span {
+.dataitem-info span {
     background-color: #22254b;
     border-radius: 10px;
     font-weight: bold;
@@ -279,20 +302,20 @@ input[type="text"] {
     padding: 0.5em;
 }
 
-.movieitem-info span.green {
+.dataitem-info span.green {
     color: rgb(39, 189, 39);
 }
 
-.movieitem-info span.orange {
+.dataitem-info span.orange {
     color: orange;
 }
 
-.movieitem-info span.red {
+.dataitem-info span.red {
     color: rgb(189, 42, 42);
     /* Set a fixed height for the footer */
 }
 
-.movieitem-info h3 {
+.dataitem-info h3 {
     font-size: 1.1rem;
     margin-top: .5em;
 }

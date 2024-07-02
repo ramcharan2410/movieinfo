@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
-const MovieItem = (props) => {
-  const { movie } = props
-  const { poster_path, title, vote_average, overview } = movie
+const DataItem = ({ data }) => {
+  const { poster_path, name = "", title = "", vote_average, overview } = data
   const IMGPATH = 'https://image.tmdb.org/t/p/w1280'
   const [isHovered, setIsHovered] = useState(false)
 
@@ -18,16 +17,16 @@ const MovieItem = (props) => {
 
   return (
     <div
-      className="movieitem-container"
+      className="dataitem-container"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="movieitem-img">
-        <img src={IMGPATH + poster_path} alt={title} />
+      <div className="dataitem-img">
+        <img src={IMGPATH + poster_path} alt={title === "" ? name : title} />
         {isHovered && (
-          <div className="movieitem-info">
-            <p className="movieitem-title" title={title}>
-              {title}
+          <div className="dataitem-info">
+            <p className="dataitem-title" title={title === "" ? name : title}>
+              {title === "" ? name : title}
             </p>
             <span className={getClassByRate(vote_average)}>{vote_average}</span>
             <h3>Overview:</h3>
@@ -39,4 +38,4 @@ const MovieItem = (props) => {
   )
 }
 
-export default MovieItem
+export default DataItem

@@ -7,23 +7,24 @@ import Footer from '../src/components/Footer'
 import Main from '../src/components/Main'
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
+  const [mode, setMode] = useState('movie')
   const [searchValue, setSearchValue] = useState('')
-  const [movies, setMovies] = useState([])
+  const [data, setData] = useState([])
   const [lastUrl, setLastUrl] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const apiKey = process.env.REACT_APP_API_KEY
   const apiUrl = process.env.REACT_APP_API_URL
-  const DISCOVER = `${apiUrl}discover/movie?api_key=${apiKey}&page=1`
-  const getMovies = async (url) => {
+  const DISCOVER = `${apiUrl}discover/${mode}?api_key=${apiKey}&page=1`
+  const getData = async (url) => {
     setLastUrl(url)
     // console.log(url)
     try {
       const response = await axios.get(url)
-      const movies = response.data
-      console.log(movies)
-      setMovies(movies)
+      const data = response.data
+      console.log(data)
+      setData(data)
     } catch (err) {
-      console.error('Error fetching movies:', err.message)
+      console.error('Error fetching data:', err.message)
     }
   }
   const scrollToTop = () => {
@@ -34,31 +35,34 @@ const App = () => {
     })
   }
   useEffect(() => {
-    const fetchDiscoverMovies = async () => {
-      await getMovies(DISCOVER)
+    const fetchData = async () => {
+      await getData(DISCOVER)
     }
-    fetchDiscoverMovies()
+    fetchData()
   }, [])
   return (
     <div className='App'>
       <Header
+        mode={mode}
+        setMode={setMode}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-        getMovies={getMovies}
+        getData={getData}
         setCurrentPage={setCurrentPage}
-      />
+        />
       <Main
-        movies={movies}
+        mode={mode}
+        data={data}
         scrollToTop={scrollToTop}
         searchValue={searchValue}
         selectedCategory={selectedCategory}
       />
       <Footer
-        movies={movies}
-        setMovies={setMovies}
-        getMovies={getMovies}
+        data={data}
+        setData={setData}
+        getData={getData}
         lastUrl={lastUrl}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

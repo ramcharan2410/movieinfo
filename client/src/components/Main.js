@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react'
-import MovieList from './MovieList'
+import DataList from './DataList'
 
 const Main = (props) => {
-  const { movies, scrollToTop, searchValue, selectedCategory } = props
-
+  const { mode, data, scrollToTop, searchValue, selectedCategory } = props
+  let discoverText = '';
+  if (mode === 'movie') {
+    discoverText = 'Movies';
+  } else if (mode === 'tv') {
+    discoverText = 'TV shows';
+  }
   useEffect(() => {
     scrollToTop()
-  }, [movies, scrollToTop])
+  }, [data, scrollToTop])
 
   const renderMainContent = () => {
     if (searchValue !== '') {
@@ -16,18 +21,21 @@ const Main = (props) => {
     } else if (selectedCategory !== '') {
       return (
         <div className="main-content">
-          Exploring '{selectedCategory}' movies
+          Exploring {selectedCategory} {discoverText}...
         </div>
       )
     } else {
-      return <div className="main-content">Explore and find movies...</div>
+      return <div className="main-content">Discover {discoverText}...</div>
     }
   }
 
   return (
     <div className="main-container">
       {renderMainContent()}
-      <MovieList movies={movies} />
+      <DataList
+        mode={mode}
+        data={data}
+      />
     </div>
   )
 }
