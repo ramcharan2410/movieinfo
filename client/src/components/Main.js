@@ -1,8 +1,16 @@
 import React, { useEffect } from 'react'
+import ReactLoading from 'react-loading';
 import DataList from './DataList'
 
 const Main = (props) => {
-  const { mode, data, scrollToTop, searchValue, selectedCategory } = props
+  const {
+    loadingData,
+    mode,
+    data,
+    scrollToTop,
+    searchValue,
+    selectedCategory
+  } = props
   let discoverText = '';
   if (mode === 'movie') {
     discoverText = 'Movies';
@@ -32,10 +40,12 @@ const Main = (props) => {
   return (
     <div className="main-container">
       {renderMainContent()}
-      <DataList
-        mode={mode}
-        data={data}
-      />
+      {loadingData ?
+        <div className="main-loading">
+          <ReactLoading type="bars" color="black" />
+        </div>
+        :
+        <DataList mode={mode} data={data} />}
     </div>
   )
 }

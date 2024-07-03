@@ -6,6 +6,7 @@ import Header from '../src/components/Header'
 import Footer from '../src/components/Footer'
 import Main from '../src/components/Main'
 const App = () => {
+  const [loadingData, setLoadingData] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [mode, setMode] = useState('movie')
   const [searchValue, setSearchValue] = useState('')
@@ -39,10 +40,13 @@ const App = () => {
       await getData(DISCOVER)
     }
     fetchData()
+    // setLoadingData(false)
   }, [])
   return (
     <div className='App'>
       <Header
+        loadingData={loadingData}
+        setLoadingData={setLoadingData}
         mode={mode}
         setMode={setMode}
         selectedCategory={selectedCategory}
@@ -51,8 +55,9 @@ const App = () => {
         setSearchValue={setSearchValue}
         getData={getData}
         setCurrentPage={setCurrentPage}
-        />
+      />
       <Main
+        loadingData={loadingData}
         mode={mode}
         data={data}
         scrollToTop={scrollToTop}
@@ -60,6 +65,7 @@ const App = () => {
         selectedCategory={selectedCategory}
       />
       <Footer
+        setLoadingData={setLoadingData}
         data={data}
         setData={setData}
         getData={getData}

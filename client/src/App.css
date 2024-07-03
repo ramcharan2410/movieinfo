@@ -189,7 +189,10 @@ input[type="text"] {
     padding-bottom: 8vh;
     /* Add padding equal to the height of the footer */
 }
-
+.main-loading{
+    display: flex;
+    justify-content: center;
+}
 .main-content {
     text-align: center;
     font-size: 2rem;

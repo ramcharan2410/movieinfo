@@ -1,7 +1,14 @@
 import React from 'react'
 
 const Footer = (props) => {
-  const { data, getData, lastUrl, currentPage, setCurrentPage } = props
+  const {
+    setLoadingData,
+    data,
+    getData,
+    lastUrl,
+    currentPage,
+    setCurrentPage
+  } = props
 
   const getYear = () => {
     const today = new Date()
@@ -9,8 +16,8 @@ const Footer = (props) => {
   }
 
   const handlePageChange = async (newPage) => {
+    setLoadingData(true)
     setCurrentPage(newPage)
-
     let urlsplit = lastUrl.split('?')
     let queryParams = urlsplit[1].split('&')
     let key = queryParams[queryParams.length - 1].split('=')
@@ -26,6 +33,7 @@ const Footer = (props) => {
       let url = urlsplit[0] + '?' + b
       await getData(url)
     }
+    setLoadingData(false)
   }
 
   return (
