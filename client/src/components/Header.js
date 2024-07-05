@@ -44,12 +44,9 @@ const Header = (props) => {
 
   // Effect to fetch data whenever searchURL changes
   useEffect(() => {
-    const fetchData = async () => {
-      if (searchURL) {
-        await getData(searchURL);
-      }
+    if (searchURL) {
+      getData(searchURL);
     }
-    fetchData();
   }, [searchURL]);
 
   // Handle category change

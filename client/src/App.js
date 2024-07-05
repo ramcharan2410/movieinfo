@@ -1,10 +1,11 @@
 import { Analytics } from '@vercel/analytics/react'
 import './App.css'
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import Header from '../src/components/Header'
 import Footer from '../src/components/Footer'
 import Main from '../src/components/Main'
+import { getDataWithCache } from './services/api'
+
 const App = () => {
   const [loadingData, setLoadingData] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -13,9 +14,6 @@ const App = () => {
   const [data, setData] = useState([])
   const [lastUrl, setLastUrl] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
-  const apiKey = process.env.REACT_APP_API_KEY
-  const apiUrl = process.env.REACT_APP_API_URL
-  const DISCOVER_MOVIE = `${apiUrl}discover/${mode}?api_key=${apiKey}&page=1`
   const getData = async (url) => {
     console.log(url);
     setLastUrl(url);
@@ -25,8 +23,7 @@ const App = () => {
       // Introduce a delay to simulate loading
       await new Promise((resolve) => setTimeout(resolve, 900)); // 1 second delay
 
-      const response = await axios.get(url);
-      const data = response.data;
+      const data = await getDataWithCache(url); // Use the caching function
       // console.log(data);
       setData(data);
     } catch (err) {
@@ -45,8 +42,6 @@ const App = () => {
   return (
     <div className='App'>
       <Header
-        loadingData={loadingData}
-        setLoadingData={setLoadingData}
         mode={mode}
         setMode={setMode}
         selectedCategory={selectedCategory}
@@ -68,7 +63,6 @@ const App = () => {
         loadingData={loadingData}
         setLoadingData={setLoadingData}
         data={data}
-        setData={setData}
         getData={getData}
         lastUrl={lastUrl}
         currentPage={currentPage}
