@@ -15,19 +15,26 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const apiKey = process.env.REACT_APP_API_KEY
   const apiUrl = process.env.REACT_APP_API_URL
-  const DISCOVER = `${apiUrl}discover/${mode}?api_key=${apiKey}&page=1`
+  const DISCOVER_MOVIE = `${apiUrl}discover/${mode}?api_key=${apiKey}&page=1`
   const getData = async (url) => {
-    setLastUrl(url)
-    // console.log(url)
+    console.log(url);
+    setLastUrl(url);
+    setLoadingData(true);
+
     try {
-      const response = await axios.get(url)
-      const data = response.data
-      console.log(data)
-      setData(data)
+      // Introduce a delay to simulate loading
+      await new Promise((resolve) => setTimeout(resolve, 900)); // 1 second delay
+
+      const response = await axios.get(url);
+      const data = response.data;
+      // console.log(data);
+      setData(data);
     } catch (err) {
-      console.error('Error fetching data:', err.message)
+      console.error('Error fetching data:', err.message);
+    } finally {
+      setLoadingData(false);
     }
-  }
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -35,13 +42,6 @@ const App = () => {
       behavior: 'smooth',
     })
   }
-  useEffect(() => {
-    const fetchData = async () => {
-      await getData(DISCOVER)
-    }
-    fetchData()
-    // setLoadingData(false)
-  }, [])
   return (
     <div className='App'>
       <Header
@@ -65,6 +65,7 @@ const App = () => {
         selectedCategory={selectedCategory}
       />
       <Footer
+        loadingData={loadingData}
         setLoadingData={setLoadingData}
         data={data}
         setData={setData}

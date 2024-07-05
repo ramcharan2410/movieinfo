@@ -2,6 +2,7 @@ import React from 'react'
 
 const Footer = (props) => {
   const {
+    loadingData,
     setLoadingData,
     data,
     getData,
@@ -38,23 +39,25 @@ const Footer = (props) => {
 
   return (
     <div className="footer">
-      <div className="custom-pagination">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          &lt; Prev
-        </button>
-        <span className="current-page">
-          {currentPage} of {data.total_pages}
-        </span>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === data.total_pages}
-        >
-          Next &gt;
-        </button>
-      </div>
+      {!loadingData && (
+        <div className="custom-pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            &lt; Prev
+          </button>
+          <span className="current-page">
+            {currentPage} of {data.total_pages}
+          </span>
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === data.total_pages}
+          >
+            Next &gt;
+          </button>
+        </div>
+      )}
       <div className="footer-copyright">Copyright &copy; {getYear()}</div>
     </div>
   )

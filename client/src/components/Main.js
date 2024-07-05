@@ -39,13 +39,15 @@ const Main = (props) => {
 
   return (
     <div className="main-container">
-      {renderMainContent()}
       {loadingData ?
         <div className="main-loading">
-          <ReactLoading type="bars" color="black" />
+          <ReactLoading type="bars" color="white" />
         </div>
         :
-        <DataList mode={mode} data={data} />}
+        <>
+          {renderMainContent()}
+          <DataList mode={mode} data={data} />
+        </>}
     </div>
   )
 }
