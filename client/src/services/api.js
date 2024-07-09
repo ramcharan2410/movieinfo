@@ -34,7 +34,12 @@ export const getDataWithCache = async (url) => {
                 ...data,
                 timestamp: Date.now(), // Add timestamp to cache data
             };
-            await cache.put(url, new Response(JSON.stringify(cacheData)));
+            if (url.includes('search')) {
+                console.log('Search performed, hence no caching done');
+            }
+            else {
+                await cache.put(url, new Response(JSON.stringify(cacheData)));
+            }
             console.log('Fetched data:', data);
             return data;
         } catch (err) {
